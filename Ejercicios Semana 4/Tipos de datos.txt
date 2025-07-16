@@ -1,0 +1,38 @@
+# Resumen de tipos de datos
+
+Integer = int
+	my_inte = 45
+float = float
+	my_float = 4.54
+string = str
+	my_string = "Text"
+bollean = bool
+	my_bool = True or False
+list = list
+	my_list = [4, 5, "Test"]
+tuple = tuple
+	my_list = (4, 5, "Test")
+dictionary = dict
+	my_dict = {
+		"key_1": "Hola",
+		"key_2": "Mundo"
+	}
+	
+	
+	Operaciones Aritmeticas
+	+ Suma
+	- Resta
+	* Multiplicacion
+	/ Division
+	** Potencia
+	// Division resultado entero sin decimales
+	% Residuo
+	
+	Operaciones logicas
+	
+	== Igual a
+	!= Diferente
+	>= Mayor o igual a
+	<= Menor o igual a
+	not
+	

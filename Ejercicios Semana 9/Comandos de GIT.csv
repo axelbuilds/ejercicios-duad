@@ -1,0 +1,9 @@
+Comando,Descripción
+git init,Inicia un repositorio local.
+git status,Muestra archivos modificados.
+git add nombre-archivo,Agrega archivos al stage.
+"git commit -m ""mensaje""",Crea un commit con los archivos en el stage.
+git checkout -b nombre-rama,Crea una nueva rama.
+git checkout nombre-rama,Cambia de rama.
+git push,Envía cambios al repositorio remoto.
+git pull,Descarga cambios del repositorio remoto.

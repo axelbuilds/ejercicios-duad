@@ -1,0 +1,70 @@
+Rutas Absolutas: Es la ruta directa desde el inicio hasta el final del archivo o folder
+Rutas Relativas: Es la ruta que puede varias dependiendo de la ubicacion en la que este
+
+- Listar los archivos y directorios.
+`dir` (Windows)
+ `ls` (MacOs / Linux)
+                 
+- (Change Directory). Cambiar el directorio actual.
+cd <ruta> Windows) 
+cd <ruta> MacOs / Linux)
+
+- Volver al directorio padre.
+`cd ..` (Windows) 
+`cd ..` (MacOs / Linux)
+
+- Mostrar la ruta absoluta del directorio actual.
+`cd` (Windows) 
+`pwd` (MacOs / Linux)
+
+- Crear un directorio.
+mkdir <directorio> (Windows)
+mkdir <directorio> (MacOs / Linux)
+
+- Eliminar un directorio vacío.
+`rmdir Proyecto` (Windows) 
+`rmdir Proyecto` (MacOs / Linux)
+
+- Crear un archivo .txt vacío.
+`echo. > nombre.txt` (Windows)          
+`touch nombre.txt` (MacOs / Linux)                    
+
+- Eliminar archivos.
+del <archivo>(Windows)
+rm <archivo> (MacOs / Linux)
+
+- Mover archivos y directorios.
+move <archivo o directorio> <ruta nueva>
+mv <archivo o directorio>
+`move archivo.txt Proyectos/` (Windows)
+`mv archivo.txt Proyectos/` (MacOs / Linux)
+
+- Copiar archivos y directorios.
+copy <archivo o directorio> <ruta nueva>
+cp <archivo o directorio>
+`copy archivo.txt Proyectos/` (Windows)
+ `cp archivo.txt Proyectos/` (MacOs / Linux)
+
+- Re nombrar un archivo o directorio.
+ren <nombre actual> <nombre nuevo>
+mv <nombre actual> <nombre nuevo>
+`ren viejo.txt nuevo.txt` (Windows)
+ `mv viejo.txt nuevo.txt` (MacOs / Linux)
+ 
+- Listar procesos en ejecución.
+`tasklist` (Windows)
+`ps` (MacOs / Linux)
+
+- Listar procesos más activos.
+`Get-Process` (Windows) 
+ `top` (MacOs / Linux)
+
+- Terminar un proceso por Id.
+taskkill /F /PID <pid>
+kill
+`taskkill 123` (Windows) 
+ `kill 123` (MacOs / Linux)   
+ 
+- Permitir la ejecución de comandos con privilegios de administrador.
+`runas /user:admin tasklist`(Windows) 
+`sudo kill 1234` (MacOs / Linux)

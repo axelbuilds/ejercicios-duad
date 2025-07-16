@@ -1,0 +1,37 @@
+Last login: Wed May  7 15:01:52 on ttys000
+akuseru@axel ~ % cd Desktop     
+akuseru@axel Desktop % mkdir Empleado1
+akuseru@axel Desktop % mkdir Empleado2
+akuseru@axel Desktop % mkdir Empleado3
+akuseru@axel Desktop % cd Empleado1   
+akuseru@axel Empleado1 % touch bienvenida1.txt
+akuseru@axel Empleado1 % cd ..                
+akuseru@axel Desktop % cd Empleado2
+akuseru@axel Empleado2 % touch bienvenida2.txt
+akuseru@axel Empleado2 % cd ..
+akuseru@axel Desktop % cd Empleado3
+akuseru@axel Empleado3 % touch bievenida3.txt
+akuseru@axel Empleado3 % cd ..
+akuseru@axel Desktop % mkdir Empleados
+akuseru@axel Desktop % mv Empleado1 Empleados
+akuseru@axel Desktop % mv Empleado2 Empleados
+akuseru@axel Desktop % mv Empleado3 Empleados
+akuseru@axel Desktop % cd ..
+akuseru@axel ~ % ps
+  PID TTY           TIME CMD
+ 5252 ttys000    0:00.08 -zsh
+akuseru@axel ~ % ps
+  PID TTY           TIME CMD
+ 5252 ttys000    0:00.08 -zsh
+ 5309 ttys001    0:00.02 -zsh
+ 5315 ttys001    0:00.02 ping google.com
+akuseru@axel ~ % kill 5315
+akuseru@axel ~ % date
+Wed May  7 15:17:02 CST 2025
+akuseru@axel ~ % mv "Desktop/Empleados/Empleado1/bienvenida1.txt" "Desktop/Empleados/Empleado3/welcome.txt"
+akuseru@axel ~ % mv "Desktop/Empleados/Empleado2/bienvenida2.txt" "Desktop/Empleados/Empleado3/welcome.txt"
+akuseru@axel ~ % mv "Desktop/Empleados/Empleado3/bienvenida3.txt" "Desktop/Empleados/Empleado3/welcome.txt"
+mv: Desktop/Empleados/Empleado3/bienvenida3.txt: No such file or directory
+akuseru@axel ~ % cd Desktop
+akuseru@axel Desktop % rm -rf Empleados
+akuseru@axel Desktop % 
