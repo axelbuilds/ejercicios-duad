@@ -1,0 +1,35 @@
+• Cree un algoritmo para ver un video en Youtube. Sea lo más especifico posible.
+
+1. Verificar conexión a internet
+     a. Si hay conexión a internet
+     Sino hay conexión a internet;
+    	i. Verificar si el módem está encendido
+    		I. Si esta apagado, enciendalo
+                II. Sino reinicie el módem
+    b. Comprobar nuevamente la conexión
+2. Abrir el navegador web o aplicacion de Youtube
+3. Ingresar la dirección URL www.youtube.com
+4. Buscar el video deseado
+5. Reproducir el video seleccionado
+6. Ver el video
+7. Fin
+
+• Cree un algoritmo que describa su rutina diaria. Use condiciones, condiciones multiples y ciclos.
+
+1. Levantarse
+2. Si es hora de ir al gimnasio;
+         a. Ir al gimnasio
+         b. Volver a casa
+     Sino, Bañarse
+3. Iniciar la jornada laboral hasta completarla
+4. Estudiar o hacer tareas
+         a. Si hay tareas pendientes:
+              i. Hacer la tarea
+      Sino, estudiar japones
+5. Preparar la cena
+6. Mientras no haya terminado de cenar:
+         a. Seguir comiendo
+7. Si todavía hay tiempo antes de dormir;
+         a. Ver una serie o jugar videojuegos
+8. Ir a dormir
+9. Fin
