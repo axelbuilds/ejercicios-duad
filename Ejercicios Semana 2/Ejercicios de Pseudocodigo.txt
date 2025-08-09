@@ -1,0 +1,101 @@
+1. Cree un pseudocódigo que le pida un `precio de producto` al usuario, calcule su descuento y muestre el precio final tomando en cuenta que:
+    1. Si el precio es menor a 100, el descuento es del 2%.
+    2. Si el precio es mayor o igual a 100, el descuento es del 10%.
+
+Inicio
+Definir `precio_producto`
+Definir `descuento`
+Definir `precio_final`
+Mostrar "Ingrese el precio del producto"
+Pedir `precio_producto`
+            Si precio_producto <= 100 entonces:
+            `descuento` = `precio_producto` * 0.02
+            Sino:
+            `descuento`= `precio_producto` * 0.10
+            FinSi
+`precio_final` = `precio_producto` - `descuento`
+Mostrar "El descuento es de " `precio_final`
+Fin
+
+1. Cree un pseudocódigo que le pida un tiempo en segundos al usuario y calcule si es menor o mayor a 10 minutos. Si es menor, muestre cuantos segundos faltarían para llegar a 10 minutos. Si es mayor, muestre “Mayor”. Si es exactamente igual, muestre “Igual”.
+
+Inicio
+Definir `tiempo_en_segundos`
+Definir `segundos_faltantes`
+Mostrar "Digite los segundos para calcular si es mayor a 10 minutos "
+Pedir `tiempo_en_segundos`
+            Si `tiempo_en_segundos` > '600' entonces:
+            Mostar "Mayor"
+            Si `tiempo_en_segundos` = '600' entonces:
+            Mostar "Igual"
+            Sino:
+            `segundos_faltantes` = `tiempo_en_segundos` - 600
+            Mostrar "Faltan "`segundos_faltantes` "para llegar a 10 minutos
+            FinSi
+
+Fin
+
+3.Cree un algoritmo que le pida un numero al usuario, y realice una suma de cada numero del 1 hasta ese número ingresado. Luego muestre el resultado de la suma.
+
+Inicio
+Definir `numero_usuario`
+Definir `suma` = 0
+Definir `contador` = 1
+Mostrar "Digite un numero"
+Pedir `numero_usuario`
+            Mientras `contador` <= `numero_usuario` entonces:
+            `suma` = `suma` + `contador`
+            `contador` = `contador` + 1
+            Mostrar "El resultado de la suma es" `suma`
+Fin
+
+- **Extras**
+Cree un algoritmo que le pida 2 números al usuario, los guarde en dos variables distintas (primero y segundo) y los ordene de menor a mayor en dichas variables.
+
+Inicio
+Definir `numero_1`
+Definir `numero_2`
+Mostrar "Digite el primer numero"
+Pedir `numero_1`
+Mostrar "Digite el segundo numero"
+`Pedir numero_2`
+            Si `numero_1` > `numero_2` entonces:
+            Mostrar `numero_2`, `numero_1`
+            Sino:
+            Mostrar `numero_1`, `numero_2`
+            FinSi
+Fin
+
+- Cree un algoritmo que le pida al usuario una velocidad en km/h y la convierta a m/s. Recuerda que 1 km == 1000m y 1 hora == 60 minutos * 60 segundos.
+
+Inicio
+`velocidad_km`
+`velocidad_ms`
+Mostrar "Digite la velocidad en km/h"
+Pedir `velocidad_km`
+`velocidad_ms` = `velocidad_km` * 1000 / 3600
+Mostrar "La conversion a m/s es "`velocidad_ms`
+Fin
+
+- Cree un algoritmo que le pregunte al usuario por el sexo de 6 personas, ingresando 1 si es mujer o 2 si es hombre, y muestre al final el porcentaje de mujeres y hombres.
+
+Inicio
+Definir `mujeres` = 0
+Definir `hombres` = 0
+Definir `sexo`
+Definir `contador` = 1
+Definir `porcentaje_mujeres`
+Definir `porcentaje_hombres`
+             Mientras `contador` <= 6:
+             Mostrar "Ingrese el sexo de 6 personas, 1 si es mujer o 2 si es 	hombre"
+             Pedir `sexo`
+                        Si `sexo` = 1, entonces:
+                        `mujeres` = `mujeres` + 1
+                        Sino:
+                        `hombres` = `hombres` + 1
+                        FinSi
+               `contador` = `contador` + 1
+`porcentaje_mujeres` = `mujeres` * 100 / 6
+`porcentaje_hombres` = `hombres` * 100 / 6
+Mostrar `porcentaje_mujeres` "Mujeres" `porcentaje_hombres` "Hombres"
+Fin
