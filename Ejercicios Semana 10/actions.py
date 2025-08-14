@@ -67,7 +67,7 @@ def view_students(students):# Displays all students with their information.
 
 
 def calculate_average(student): #Calculates the general average score of a student.
-    return (student["english"] + student["history"] + student["science"]) / 4
+    return (student ["spanish"] + student["english"] + student["history"] + student["science"]) / 4
 
 
 def view_top_3(students): #Displays the top 3 students based on their average score.

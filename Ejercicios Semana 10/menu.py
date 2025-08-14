@@ -10,7 +10,10 @@ from actions import (
 )
 from data import export_to_csv, import_from_csv
 
+
 def show_menu(students):
+    FILE_NAME = "students_data.csv" #CSV file name. Declared as a local variable
+
     while True:
         print("\n - Sistema de Informacion de Estudiantes -")
         print("1. Ingresar estudiantes")
@@ -34,9 +37,9 @@ def show_menu(students):
         elif option == "4":
             view_average_score(students)
         elif option == "5":
-            export_to_csv(students)
+            export_to_csv(students, FILE_NAME)
         elif option == "6":
-            import_from_csv(students)
+            import_from_csv(students, FILE_NAME)
         elif option == "7":
             delete_student(students)
         elif option == "8":

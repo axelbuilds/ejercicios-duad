@@ -3,11 +3,8 @@
 import csv
 import os
 
-base_directory = os.path.dirname(os.path.abspath(__file__)) #Gets the path of the current file (data.py) to store the csv file
-FILE_NAME = "students_data.csv"  # CSV file name
 
-
-def export_to_csv(students): #Exports the student list to a CSV file.
+def export_to_csv(students,FILE_NAME): #Exports the student list to a CSV file.
     if not students:
         print("n\ - No hay estudiantes para exportar. -")
         return
@@ -21,7 +18,7 @@ def export_to_csv(students): #Exports the student list to a CSV file.
     print(f"Datos exportados a {FILE_NAME}")
 
 
-def import_from_csv(students): #Imports student data from a CSV file if it exists.
+def import_from_csv(students,FILE_NAME): #Imports student data from a CSV file if it exists.
     if not os.path.exists(FILE_NAME):
         print("\n - No existe un archivo CSV previo. Exporte datos primero. -")
         return
