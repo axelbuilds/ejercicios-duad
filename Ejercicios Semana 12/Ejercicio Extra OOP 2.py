@@ -9,7 +9,7 @@ class User(ABC): #Abstract Class
         pass
 
     @abstractmethod
-    def has_permission(self): #All users must include has_permissions
+    def has_permission(self, permission): #All users must include has_permissions
         pass
 
 
@@ -20,7 +20,7 @@ class AdminUser(User): #Inherits from User
     def get_role(self):
         return "AdminUser: Tiene todos los accesos"
     
-    def has_permission(self, permissions):
+    def has_permission(self, permission):
         return True #All permissions = True
 
 
