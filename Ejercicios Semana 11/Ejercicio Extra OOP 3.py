@@ -21,7 +21,7 @@ class Inventory:
     def calculate_total_inventory_value(self):
         total = 0
         for product in self.products:
-            total = total + product.price * product.quantity
+            total = total + product.price * product.quantity #Calculates the sum of the products and saves the value
         return total
 
 

@@ -1,19 +1,19 @@
 #Ejercicio OOP #2
 
 class Passenger:
-    def __init__(self, name):
-        self.name = name
+    def __init__(self, name): #Constructor
+        self.name = name #Saves passenger's name
 
 
 class Bus:
     def __init__(self, max_passengers):
-        self.max_passengers = max_passengers
-        self.current_passengers = []
+        self.max_passengers = max_passengers #Bus max capacity
+        self.current_passengers = [] #List of current passengers
 
 
     def add_passenger(self, passenger):
-        if len(self.current_passengers) < self.max_passengers:
-            self.current_passengers.append(passenger)
+        if len(self.current_passengers) < self.max_passengers: #Checks if there are available sits
+            self.current_passengers.append(passenger) #Adds the passenger to the list
             print(f'{passenger.name} abordó.')
             return True
         else:
@@ -22,8 +22,8 @@ class Bus:
 
 
     def dropoff_passenger(self):
-        if self.current_passengers:
-            passenger = self.current_passengers.pop()
+        if self.current_passengers: #Checks if there are passengers in the bus
+            passenger = self.current_passengers.pop() #Removes the last passenger who boarded
             print(f'{passenger.name} bajó del bus.')
             return True
         else:
