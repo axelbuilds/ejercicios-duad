@@ -58,13 +58,11 @@ class Deque:
         if self.left is None:
             print("El deque esta vacio")
             return
-        current = self.left
+        current = self.left #Starts from the very first node to the left
         print("Deque (Izquierda a Derecha):")
-        while current: #Prints the deque from left to right with each node's data
+        while current: #Prints the deque from left to right with each node's data until none
             print(f" - {current.data}")
-            current = current.next
-            print(f" - {current.data}")
-            current = current.next
+            current = current.next #Moves once per iteration
 
 
 #Test
@@ -74,9 +72,10 @@ dq.push_left(1) #Data combination of FIFO and LIFO
 dq.push_left(2)
 dq.push_right(3)
 dq.push_right(4)
+dq.push_left(5)
 dq.print_deque()
 
-print(f'Eliminado de la izquierda {dq.pop_left()}')
-print(f'Eliminado de la derecha {dq.pop_right()}')
+print(f'Eliminado de la izquierda {dq.pop_left()}') #Removes last left value (5)
+print(f'Eliminado de la derecha {dq.pop_right()}') #Removes last right value (4)
 
 dq.print_deque()
