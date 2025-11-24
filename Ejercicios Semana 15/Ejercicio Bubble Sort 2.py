@@ -1,0 +1,27 @@
+#Ejercicio Bubble Sort 2
+
+
+def bubble_sort(list_to_sort):
+    for sort_index in range(0, len(list_to_sort) - 1): #New loop to repeat the number of times equal to the list lenght
+        list_changes = False
+
+        #Inner loop to go through the list from right to left
+        for index in range(len(list_to_sort) - 1, sort_index, -1): #Smallest numbers move to the left
+            current_num = list_to_sort[index] 
+            prev_num = list_to_sort[index - 1] #Next number is now the number to te right in the index
+            print(f'Index: {index} - Numero actual: {current_num} - Numero anterior: {prev_num}')
+
+            if current_num < prev_num: #Checks if current is less than previous number
+                list_to_sort[index] = prev_num #If True, changes position to the previous number
+                list_to_sort[index - 1] = current_num #Current number is now the previous in the index
+                list_changes = True
+                print(f'Se movio: {current_num}')
+        #If no changes, number are already sorted
+        if not list_changes:
+            print(f'Los numeros ya estan ordenados')
+            return
+
+#Testing
+num_list = [6,4,9,7,2,8,1,3,5] #Input List
+bubble_sort(num_list) #Calls function
+print(num_list) #Prints the list after sorting
