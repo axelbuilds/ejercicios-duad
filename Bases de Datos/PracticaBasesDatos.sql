@@ -112,3 +112,69 @@ ORDER BY total_amount DESC;
 
 SELECT * FROM facturas 
 WHERE invoice_id = 1;
+
+-- Ejercicios Extra de SQL
+
+-- Category Table
+CREATE TABLE categories (
+    category_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT UNIQUE NOT NULL,
+    description TEXT
+);
+
+-- Adding category_id and stock to Productos table
+ALTER TABLE productos ADD COLUMN category_id INTEGER REFERENCES categories(id);
+ALTER TABLE productos ADD COLUMN stock_available INTEGER DEFAULT 0;
+
+-- Adding categories
+INSERT INTO categories (name, description) 
+    VALUES
+    ('Perifericos', 'Dispositivos de entrada y salida'),
+    ('Monitores', 'Pantallas'),
+    ('Audio', 'Audifonos y Parlantes');
+
+-- Update existing products with categories
+UPDATE productos SET category_id = 1 WHERE product_id IN (1,4);
+UPDATE productos SET category_id = 2 WHERE product_id = 2;
+UPDATE productos SET category_id = 3 WHERE product_id = 3;
+
+-- Adding new products
+INSERT INTO productos (product_name, price, entry_date, brand, stock_available, category_id) 
+    VALUES 
+    ('Apple MacBook Air', 750000, '18/04/2026', 'Apple', 5, 2),
+    ('Apple iPhone 15', 600000, '18/04/2026', 'Apple', 8, 1),
+    ('Mouse Pad', 15000, '18/04/2026', 'RedDragon', 50, 1),
+    ('Apple AirPods', 120000, '18/04/2026', 'Apple', 15, 3),
+    ('Webcam 4K', 45000, '18/04/2026','Logitech', 12, 1),
+    ('Silla Gamer', 180000, '18/04/2026', 'Vertager', 3, 1),
+    ('Apple Watch', 250000, '18/04/2026', 'Apple', 7, 1),
+    ('Cable HDMI', 12000, '18/04/2026', 'Unknown', 100, 2),
+    ('Disco SSD 1TB', 55000, '18/04/2026', 'Sandisk', 20, 1),
+    ('Parlante Bluetooth', 35000, '18/04/2026', 'Xiaomi', 9, 3);
+
+-- Queries
+-- Check all products
+SELECT * FROM productos;
+
+-- Filter price > 50,000
+SELECT * FROM productos WHERE price > 50000;
+
+-- Filter product name 'apple'
+SELECT * FROM productos WHERE product_name LIKE '%apple%';
+
+-- Filter 5 most expensive products
+SELECT * FROM productos ORDER BY price DESC LIMIT 5;
+
+-- Product updates
+
+-- Stock to 0 when price <= 0
+UPDATE productos SET stock_available = 0 WHERE price <= 0;
+
+-- Increase price by 100 if stock is less than 10
+UPDATE productos SET price = price + 100 WHERE stock_available < 10;
+
+-- Decrease stock by 1 for a product
+UPDATE productos SET stock_available = stock_available - 1 WHERE product_id = 22;
+
+-- Query all products ordered by id
+SELECT * FROM productos ORDER BY product_id ASC LIMIT 10;
