@@ -90,23 +90,40 @@ INSERT INTO OrderDetails (OrderID, Item_ID, Quantity, Special_Requests) VALUES (
 -- Permite actualizar teléfonos, vehículos o seguros sin modificar múltiples registros.
 
 
+-- LIMPIEZA DE TABLAS ANTERIORES
+DROP TABLE IF EXISTS Ownership;
+DROP TABLE IF EXISTS Insurance_Plans;
+DROP TABLE IF EXISTS Insurance_Policies;
+DROP TABLE IF EXISTS Insurance_Companies;
+DROP TABLE IF EXISTS Owners;
+DROP TABLE IF EXISTS Vehicles;
+DROP TABLE IF EXISTS Vehicle_Models;
+
+-- Tabla de Modelos
+CREATE TABLE Vehicle_Models (
+    ModelID INTEGER PRIMARY KEY AUTOINCREMENT,
+    Make TEXT NOT NULL,
+    Model TEXT NOT NULL,
+    Year INTEGER NOT NULL,
+    UNIQUE(Make, Model, Year)
+);
+
 -- Tabla de Vehiculos
 CREATE TABLE Vehicles (
     VIN TEXT PRIMARY KEY,
-    Make TEXT NOT NULL,
-    Model TEXT NOT NULL,
-    Year INTEGER,
-    Color TEXT
+    ModelID INTEGER,
+    Color TEXT,
+    FOREIGN KEY (ModelID) REFERENCES Vehicle_Models(ModelID)
 );
 
--- Tabla de Propietarios
+-- Tabla de Owners
 CREATE TABLE Owners (
     OwnerID INTEGER PRIMARY KEY AUTOINCREMENT,
     Owner_Name TEXT NOT NULL,
     Owner_Phone TEXT
 );
 
--- Tabla de Aseguradoras
+-- Tabla de Seguros
 CREATE TABLE Insurance_Companies (
     InsuranceID TEXT PRIMARY KEY,
     Company_Name TEXT NOT NULL
@@ -118,27 +135,56 @@ CREATE TABLE Insurance_Policies (
     Policy_Name TEXT NOT NULL
 );
 
--- Tabla de Propiedad y Seguros
+-- Tabla de relacion Compañia y Poliza (Insurance_Plans)
+CREATE TABLE Insurance_Plans (
+    PlanID INTEGER PRIMARY KEY AUTOINCREMENT,
+    InsuranceID TEXT,
+    PolicyID TEXT,
+    FOREIGN KEY (InsuranceID) REFERENCES Insurance_Companies(InsuranceID),
+    FOREIGN KEY (PolicyID) REFERENCES Insurance_Policies(PolicyID),
+    UNIQUE(InsuranceID, PolicyID)
+);
+
+-- Tabla de Propiedad
 CREATE TABLE Ownership (
     OwnershipID INTEGER PRIMARY KEY AUTOINCREMENT,
     VIN TEXT,
     OwnerID INTEGER,
-    InsuranceID TEXT,
-    PolicyID TEXT,
+    PlanID INTEGER,
     FOREIGN KEY (VIN) REFERENCES Vehicles(VIN),
     FOREIGN KEY (OwnerID) REFERENCES Owners(OwnerID),
-    FOREIGN KEY (InsuranceID) REFERENCES Insurance_Companies(InsuranceID),
-    FOREIGN KEY (PolicyID) REFERENCES Insurance_Policies(PolicyID)
+    FOREIGN KEY (PlanID) REFERENCES Insurance_Plans(PlanID)
 );
 
 -- INSERCION DE DATOS
 
-INSERT INTO Vehicles VALUES ('1HGCM82633A', 'Honda', 'Accord', 2003, 'Silver'), ('5J6RM4H79EL', 'Honda', 'CR-V', 2014, 'Blue'), ('1G1RA6EH1FU', 'Chevrolet', 'Volt', 2015, 'Red');
+INSERT INTO Vehicle_Models (Make, Model, Year) VALUES 
+('Honda', 'Accord', 2003), 
+('Honda', 'CR-V', 2014), 
+('Chevrolet', 'Volt', 2015);
 
-INSERT INTO Owners (OwnerID, Owner_Name, Owner_Phone) VALUES (101, 'Alice', '123-456-7890'), (102, 'Bob', '987-654-3210'), (103, 'Claire', '555-123-4567'), (104, 'Dave', '111-222-3333');
+INSERT INTO Vehicles (VIN, ModelID, Color) VALUES 
+('1HGCM82633A', 1, 'Silver'), 
+('5J6RM4H79EL', 2, 'Blue'), 
+('1G1RA6EH1FU', 3, 'Red');
 
-INSERT INTO Insurance_Companies VALUES ('I01', 'ABC Insurance'), ('I02', 'XYZ Insurance'), ('I03', 'DEF Insurance'), ('I04', 'GHI Insurance');
+INSERT INTO Owners (OwnerID, Owner_Name, Owner_Phone) VALUES 
+(101, 'Alice', '123-456-7890'), 
+(102, 'Bob', '987-654-3210'), 
+(103, 'Claire', '555-123-4567'), 
+(104, 'Dave', '111-222-3333');
 
-INSERT INTO Insurance_Policies VALUES ('P01', 'Fire & Theft'), ('P02', 'Full Cover'), ('P03', 'Collision'), ('P04', 'Basic Legal');
+INSERT INTO Insurance_Companies VALUES 
+('I01', 'ABC Insurance'), ('I02', 'XYZ Insurance'), ('I03', 'DEF Insurance'), ('I04', 'GHI Insurance');
 
-INSERT INTO Ownership (VIN, OwnerID, InsuranceID, PolicyID) VALUES ('1HGCM82633A', 101, 'I01', 'P01'), ('1HGCM82633A', 102, 'I02', 'P02'), ('5J6RM4H79EL', 103, 'I03', 'P03'), ('1G1RA6EH1FU', 104, 'I04', 'P04');
+INSERT INTO Insurance_Policies VALUES 
+('P01', 'Fire & Theft'), ('P02', 'Full Cover'), ('P03', 'Collision'), ('P04', 'Basic Legal');
+
+INSERT INTO Insurance_Plans (InsuranceID, PolicyID) VALUES 
+('I01', 'P01'), ('I02', 'P02'), ('I03', 'P03'), ('I04', 'P04');
+
+INSERT INTO Ownership (VIN, OwnerID, PlanID) VALUES 
+('1HGCM82633A', 101, 1), 
+('1HGCM82633A', 102, 2), 
+('5J6RM4H79EL', 103, 3), 
+('1G1RA6EH1FU', 104, 4);
