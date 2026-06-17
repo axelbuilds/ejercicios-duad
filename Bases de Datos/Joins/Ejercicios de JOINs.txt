@@ -1,0 +1,23 @@
+SQL GROUP BY
+It is used to group rows that have the same values into summary rows, like "Find the number of customers in each country".
+
+The GROUP BY statement is mostly used in conjunction with aggregate functions, like COUNT(), MAX(), MIN(), SUM(), AVG(), to perform calculations on each group.
+
+https://www.w3schools.com/sql/sql_groupby.asp
+-------------------------
+
+SQL ORDER BY
+It is used to sort the result-set in ascending or descending order.
+
+The ORDER BY keyword sorts the result-set in ascending order (ASC) by default.
+
+https://www.w3schools.com/sql/sql_orderby.asp
+
+-------------------------
+
+SQL LIMIT Clause
+It is used to limit the number of records to return.
+
+The LIMIT clause is useful on large tables with thousands of records. Returning a large number of records can impact performance.
+
+https://www.w3schools.com/mysql/mysql_limit.asp
